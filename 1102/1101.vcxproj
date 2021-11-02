@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AssignVector.cpp" />
     <ClCompile Include="BJ1406.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyVector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssignVector.h" />
     <ClInclude Include="MyVector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
