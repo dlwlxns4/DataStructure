@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\ChangMin\DataStructure\1102\main.cpp(31,6): warning C4834: 'nodiscard' 특성이 포함된 함수의 반환 값을 버리는 중
+C:\Users\ChangMin\DataStructure\1102\main.cpp(37,25): warning C4101: 'e' :참조되지 않은 지역 변수입니다.
+C:\Users\ChangMin\DataStructure\1102\main.cpp(70,25): warning C4101: 'e' :참조되지 않은 지역 변수입니다.
+  1101.vcxproj -> C:\Users\ChangMin\DataStructure\1102\x64\Debug\1101.exe
