@@ -1,5 +1,6 @@
 #include "AssignVector.h"
 
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -118,8 +119,9 @@ std::string AssignVector::ToString() const
 	string str;
 
 	for (int i = 0; i < _size; i++)
-		str.push_back(myObject[i]._id);
+		str+=(std::to_string( (myObject[i]._id) ));
 
+	cout << str << endl;
 	return str;
 }
 
