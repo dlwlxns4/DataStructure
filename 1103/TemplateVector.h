@@ -10,7 +10,10 @@ public:
     TemplateVector() = default;
 
     // count만큼 공간이 할당된 생성자
-    explicit TemplateVector(size_t count) : _container{ new int[count] }, _size{ count }, _capacity{ count }{};
+    explicit TemplateVector(size_t count) : _container{ new int[count] }, _size{ count }, _capacity{ count }
+    {
+
+    };
 
     // 복사 생성자. 깊은 복사(deep copy)가 이뤄져야 한다.
     TemplateVector(const TemplateVector& other) : _container{ new int[other._capacity] },
@@ -44,6 +47,7 @@ public:
         other._size = 0;
         other._capacity = 0;
     };
+
         // 이동 할당 생성자
     TemplateVector& operator=(TemplateVector&& other) {
         if (this != &other)
@@ -55,7 +59,8 @@ public:
         }
         return *this;
         // TODO: 여기에 return 문을 삽입합니다.
-    }
+    };
+
     // 소멸자
     ~TemplateVector() {
         clear();
