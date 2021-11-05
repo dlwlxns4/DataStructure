@@ -2,13 +2,13 @@
 #include <cstddef>
 #include <utility>
 
-
+template <typename T>
 class DoubleLinkedList
 {
 public:
     struct Node
     {
-        Node(int data = 0, Node* prev = nullptr, Node* next = nullptr)
+        Node(const T& data = 0, Node* prev = nullptr, Node* next = nullptr)
             : Data{ data }, Prev{ prev }, Next{ next } { }
         Node(const Node&) = delete;
         Node& operator=(const Node&) = delete;
@@ -17,7 +17,7 @@ public:
             Next = nullptr;
             Prev = nullptr;
         }
-        int     Data;
+        T     Data;
         Node* Next;
         Node* Prev;
     };
@@ -150,11 +150,11 @@ public:
     }
 
     // 첫 번째 요소를 반환한다.
-    int& front() { return *begin(); }
-    const int& front() const { return *begin(); }
+    T& front() { return *begin(); }
+    const T& front() const { return *begin(); }
     // 마지막 요소를 반환한다.
-    int& back() { return *(--end()); }
-    const int& back() const { return *(--end()); }
+    T& back() { return *(--end()); }
+    const T& back() const { return *(--end()); }
     // 시작 요소를 가리키는 반복자를 반환한다.
     // 리스트가 비어있다면 end()와 같다.
     iterator begin() { return _head; }
@@ -164,7 +164,7 @@ public:
     const_iterator end() const { return _end; }
     // pos 이전에 value를 삽입한다.
     // 삽입된 요소를 가리키는 반복자를 반환한다.
-    iterator insert(iterator pos, int value)
+    iterator insert(iterator pos, const T& value)
     {
         Node* newNode = new Node(value);
         Node* prevNode = pos._p->Prev;
@@ -215,9 +215,9 @@ public:
         return nextNode;
     }
     // 시작에 value를 삽입한다.
-    void            push_front(int value) { insert(begin(), value); }
+    void            push_front(const T& value) { insert(begin(), value); }
     // 끝에 value를 삽입한다.
-    void            push_back(int value) { insert(end(), value); }
+    void            push_back(const T& value) { insert(end(), value); }
     // 시작 요소를 제거한다.
     void            pop_front() { erase(begin()); }
     // 끝 요소를 제거한다.
@@ -235,7 +235,7 @@ public:
         }
     }
     // 해당 value가 있는지 체크한다.
-    bool            contains(int value) const
+    bool            contains(const T& value) const
     {
         for (auto iter = begin(); iter != end(); ++iter)
         {
