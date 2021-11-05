@@ -1,12 +1,7 @@
 #pragma once
 #include <cstddef>
-template <typename T>
-void swap(T& lhs, T& rhs)
-{
-    T temp = lhs;
-    lhs = rhs;
-    rhs = temp;
-}
+#include <utility>
+
 
 class DoubleLinkedList
 {
@@ -126,9 +121,9 @@ public:
     DoubleLinkedList(const DoubleLinkedList& other)
         : DoubleLinkedList()
     {
-        for (auto iter = other.begin(); iter != other.end(); iter = iter->Next)
+        for (auto iter = other.begin(); iter != other.end(); ++iter)
         {
-            push_back(iter->Data);
+            push_back(*iter);
         }
     }
     // 할당 연산자
@@ -137,9 +132,9 @@ public:
         if (this != &rhs)
         {
             DoubleLinkedList temp(rhs);
-            swap(_end, temp._end);
-            swap(_head, temp._head);
-            swap(_size, temp._size);
+            std::swap(_end, temp._end);
+            std::swap(_head, temp._head);
+            std::swap(_size, temp._size);
         }
 
         return *this;
@@ -153,37 +148,38 @@ public:
         _head = nullptr;
         _size = 0;
     }
+
     // 첫 번째 요소를 반환한다.
-    int& front() { return begin()->Data; }
-    const int& front() const { return begin()->Data; }
+    int& front() { return *begin(); }
+    const int& front() const { return *begin(); }
     // 마지막 요소를 반환한다.
-    int& back() { return end()->Prev->Data; }
-    const int& back() const { return end()->Prev->Data; }
+    int& back() { return *(--end()); }
+    const int& back() const { return *(--end()); }
     // 시작 요소를 가리키는 반복자를 반환한다.
     // 리스트가 비어있다면 end()와 같다.
-    Node* begin() { return _head; }
-    const Node* begin() const { return _head; }
+    iterator begin() { return _head; }
+    const_iterator begin() const { return _head; }
     // 끝 다음 요소를 가리키는 반복자를 반환한다.
-    Node* end() { return _end; }
-    const Node* end() const { return _end; }
+    iterator end() { return _end; }
+    const_iterator end() const { return _end; }
     // pos 이전에 value를 삽입한다.
     // 삽입된 요소를 가리키는 반복자를 반환한다.
-    Node* insert(Node* pos, int value)
+    iterator insert(iterator pos, int value)
     {
         Node* newNode = new Node(value);
-        Node* prevNode = pos->Prev;
+        Node* prevNode = pos._p->Prev;
         //    [N]
         // [] <-> [] <-> []
         //        pos
-        pos->Prev = newNode;
+        pos._p->Prev = newNode;
         if (prevNode != nullptr)
         {
             prevNode->Next = newNode;
         }
         newNode->Prev = prevNode;
-        newNode->Next = pos;
+        newNode->Next = pos._p;
         // [prev] <-> [N] <-> [pos]
-        if (pos == _head)
+        if (pos._p == _head)
         {
             _head = newNode;
         }
@@ -193,14 +189,14 @@ public:
     // pos 요소를 삭제한다.
     // 삭제된 요소의 다음 요소를 가리키는 반복자를 반환한다.
     // 아무 요소도 없으면 end()를 반환한다.
-    Node* erase(Node* pos)
+    iterator erase(iterator pos)
     {
         if (empty())
         {
             return end();
         }
-        Node* prevNode = pos->Prev;
-        Node* nextNode = pos->Next;
+        Node* prevNode = pos._p->Prev;
+        Node* nextNode = pos._p->Next;
         if (prevNode != nullptr)
         {
             prevNode->Next = nextNode;
@@ -209,12 +205,12 @@ public:
         {
             nextNode->Prev = prevNode;
         }
-        if (pos == _head)
+        if (pos._p == _head)
         {
             _head = nextNode;
         }
-        delete pos;
-        pos = nullptr;
+        delete pos._p;
+        pos._p = nullptr;
         --_size;
         return nextNode;
     }
@@ -225,7 +221,7 @@ public:
     // 시작 요소를 제거한다.
     void            pop_front() { erase(begin()); }
     // 끝 요소를 제거한다.
-    void            pop_back() { erase(end()->Prev); }
+    void            pop_back() { erase(--end()); }
     // 컨테이너가 비었는지 판단한다.
     bool            empty() const { return _size == 0; }
     // 리스트 안에 있는 요소의 개수를 반환한다.
@@ -241,9 +237,9 @@ public:
     // 해당 value가 있는지 체크한다.
     bool            contains(int value) const
     {
-        for (const Node* iter = begin(); iter != end(); iter = iter->Next)
+        for (auto iter = begin(); iter != end(); ++iter)
         {
-            if (iter->Data == value)
+            if (*iter == value)
             {
                 return true;
             }
