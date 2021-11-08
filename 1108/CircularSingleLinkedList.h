@@ -30,12 +30,11 @@ public:
         : CircularSingleLinkedList()
     {
         const Node* tmp = other.head();
-        do
+        for (int i = 0; i < other._size; ++i)
         {
             push_back(tmp->Data);
             tmp = tmp->Next;
-
-        } while (tmp != other.head());
+        }
 
     }
 
@@ -50,6 +49,7 @@ public:
             std::swap(_size, temp._size);
 
         }
+        return *this;
     }
 
     // ¼Ò¸êÀÚ

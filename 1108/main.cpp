@@ -10,12 +10,18 @@ using namespace std;
 
 int main()
 {
-	CircularSingleLinkedList lst;
+	CircularSingleLinkedList lst, lst2, lst3;
+	lst = lst2 = lst3;
 
 	lst.push_back(1);
 	lst.push_front(2);
 	lst.push_front(3);
 	lst.push_back(4);
+
+	lst3 = lst2 = lst;
+
+	lst3.PrintOnce();
+	lst2.PrintOnce();
 
 	// 3214
 	auto iter = lst.head();
@@ -34,6 +40,11 @@ int main()
 	lst.pop_front();
 	lst.pop_back();
 	lst.pop_front();
+
+	cout << endl << endl;
+	cout << "Clear!!" << endl << endl;
+	lst.clear();
+	lst.PrintOnce();
 
 	//lst.insert_after(lst.before_head(), 3);
 	//lst.PrintOnce();
