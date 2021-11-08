@@ -22,10 +22,10 @@ int main()
 	A.push_back(3);
 	A.push_front(2);
 
-	DoubleLinkedList<char> B;
-	B.push_back('a');
-	B.push_back('c');
-	B.push_front('b');
+	DoubleLinkedList<string> B;
+	B.push_back("asdf");
+	B.push_back("Zxcv");
+	B.push_front("qwer");
 	for (auto iter = A.begin(); iter != A.end(); ++iter)
 	{
 		cout << *iter << " ";

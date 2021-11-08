@@ -8,7 +8,8 @@ class DoubleLinkedList
 public:
     struct Node
     {
-        Node(const T& data = 0, Node* prev = nullptr, Node* next = nullptr)
+        Node() = default;
+        Node(const T& data, Node* prev = nullptr, Node* next = nullptr)
             : Data{ data }, Prev{ prev }, Next{ next } { }
         Node(const Node&) = delete;
         Node& operator=(const Node&) = delete;
