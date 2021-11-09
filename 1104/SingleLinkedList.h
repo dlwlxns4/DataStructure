@@ -69,9 +69,6 @@ public:
 
         int& operator*() const
         {
-            
-
-
             return const_cast<int&>(const_iterator::operator*());
         }
         int* operator->() const

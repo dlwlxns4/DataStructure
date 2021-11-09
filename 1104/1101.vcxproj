@@ -140,7 +140,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BJ1406.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SingleLinkedList.cpp" />
