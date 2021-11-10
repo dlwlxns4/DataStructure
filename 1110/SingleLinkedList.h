@@ -235,7 +235,7 @@ public:
         return false;
     }
 
-    size_t GetSize() { return _size; }
+    const size_t GetSize() const { return _size; }
 private:
     Node* _head = new Node();
     Node* _end = new Node();

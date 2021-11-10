@@ -33,10 +33,7 @@ public:
     bool            empty() const { return _container.empty(); }
 
     // 스택의 크기를 반환한다.
-    size_t          size() const 
-    { 
-        return _container.GetSize(); 
-    }
+    size_t          size() const {         return _container.GetSize(); }
 
     // 스택에 데이터를 삽입한다.
     void            push(int value) { _container.push_front(value); }
