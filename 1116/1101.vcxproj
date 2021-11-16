@@ -141,9 +141,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BJ1012.cpp" />
+    <ClCompile Include="BJ1697.cpp" />
     <ClCompile Include="BJ2178.cpp" />
     <ClCompile Include="BJ2606.cpp" />
     <ClCompile Include="BJ2667.cpp" />
+    <ClCompile Include="BJ7562.cpp" />
+    <ClCompile Include="BJ7569.cpp" />
+    <ClCompile Include="BJ7576.cpp" />
     <ClCompile Include="DFSBFS.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
