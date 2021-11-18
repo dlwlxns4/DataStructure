@@ -16,6 +16,8 @@ int answer;
 void bfs(queue<PosCount>& q, int desX, int desY, int size)
 {
 	bool visited[301][301] = { false };
+	int dx[8] = { -1, -1, 1, 1, -2, -2 ,2, 2 };
+	int dy[8] = { 2, -2, 2, -2, 1, -1, 1, -1 };
 
 
 	while (!q.empty())
@@ -33,48 +35,15 @@ void bfs(queue<PosCount>& q, int desX, int desY, int size)
 			return;
 		}
 
-		if ((currPosX - 1 >= 0 && currPosY - 2 >= 0) && visited[currPosX - 1][currPosY - 2] == false)
+		for (int i = 0; i < 8; ++i)
 		{
-			q.push({ currPosX - 1, currPosY - 2, currCount + 1 });
-			visited[currPosX - 1][currPosY - 2] = true;
+			if (currPosX + dx[i] >= 0 && currPosX + dx[i] < size && currPosY + dy[i] >= 0 && currPosY + dy[i] < size)
+			{
+				if(visited[currPosX + dx[i]][currPosY + dy[i]]==false)
+				q.push({ currPosX + dx[i], currPosY + dy[i], currCount + 1 });
+				visited[currPosX + dx[i]][currPosY + dy[i]] = true;
+			}
 		}
-		if ((currPosX + 1 < size && currPosY - 2 >= 0) && visited[currPosX + 1][currPosY - 2] == false)
-		{
-			q.push({ currPosX + 1, currPosY - 2, currCount + 1 });
-			visited[currPosX + 1][currPosY - 2] = true;
-		}
-		if ((currPosX - 1 >= 0 && currPosY + 2 < size) && visited[currPosX - 1][currPosY + 2] == false)
-		{
-			q.push({ currPosX - 1, currPosY + 2, currCount + 1 });
-			visited[currPosX - 1][currPosY + 2] = true;
-		}
-		if ((currPosX + 1 < size && currPosY + 2 < size) && visited[currPosX + 1][currPosY + 2] == false)
-		{
-			q.push({ currPosX + 1, currPosY + 2, currCount + 1 });
-			visited[currPosX + 1][currPosY + 2] = true;
-		}
-
-		if ((currPosX - 2 >= 0 && currPosY - 1 >= 0) && visited[currPosX - 2][currPosY - 1] == false)
-		{
-			q.push({ currPosX - 2, currPosY - 1, currCount + 1 });
-			visited[currPosX - 2][currPosY - 1] = true;
-		}
-		if ((currPosX + 2 < size && currPosY - 1 >= 0) && visited[currPosX + 2][currPosY - 1] == false)
-		{
-			q.push({ currPosX + 2, currPosY - 1, currCount + 1 });
-			visited[currPosX + 2][currPosY - 1] = true;
-		}
-		if ((currPosX - 2 >= 0 && currPosY + 1 < size) && visited[currPosX - 2][currPosY + 1] == false)
-		{
-			q.push({ currPosX - 2, currPosY + 1, currCount + 1 });
-			visited[currPosX - 2][currPosY + 1] = true;
-		}
-		if ((currPosX + 2 < size && currPosY + 1 < size) && visited[currPosX + 2][currPosY + 1] == false)
-		{
-			q.push({ currPosX + 2, currPosY + 1, currCount + 1 });
-			visited[currPosX + 2][currPosY + 1] = true;
-		}
-
 	}
 }
 
