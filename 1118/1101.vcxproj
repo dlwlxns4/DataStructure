@@ -140,7 +140,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BJ.cpp" />
+    <ClCompile Include="BJ11404.cpp" />
+    <ClCompile Include="BJ1504.cpp" />
+    <ClCompile Include="BJ1753.cpp" />
+    <ClCompile Include="BJ1956.cpp" />
     <ClCompile Include="dijkstra.cpp" />
     <ClCompile Include="floyd.cpp" />
   </ItemGroup>

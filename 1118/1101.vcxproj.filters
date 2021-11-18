@@ -21,7 +21,16 @@
     <ClCompile Include="floyd.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="BJ.cpp">
+    <ClCompile Include="BJ1753.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BJ1504.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BJ11404.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BJ1956.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -13,12 +13,9 @@
 //// 4. 모든 정점에 대해서 최단 경로를 찾을 때까지 2번부터 반복한다.
 ////start : 시작 정점
 //
+//int N, M;
 //
-//
-//
-//int N, M, startNode;
-//
-//std::vector<int> GetShortestPath2(const vector<vector<pair<int, int>>>& map)
+//std::vector<int> GetShortestPath2(const vector<vector<pair<int, int>>>& map, int startNode)
 //{
 //	// distance 배열 만들기
 //	// 발견되지 않은 정점은 모두 INF다.
@@ -77,7 +74,6 @@
 //
 //	cin >> N;
 //	cin >> M;
-//	cin >> startNode;
 //
 //	vector<vector<pair<int, int>>> map2(N);
 //	for (int i = 0; i < M; ++i)
@@ -88,16 +84,47 @@
 //		cin >> weight;
 //
 //		map2[start - 1].push_back({ end - 1, weight });
+//		map2[end - 1].push_back({ start - 1, weight });
 //	}
 //
+//	int x1, x2;
+//	cin >> x1;
+//	cin >> x2;
 //
-//	auto path = GetShortestPath2(map2);
-//	for (int i : path)
+//	auto path = GetShortestPath2(map2,1); // 1->x1 || 1->x2
+//	auto path2 = GetShortestPath2(map2, x1); // x1->x2 || x1->N
+//	auto path3 = GetShortestPath2(map2, x2); // x2->N || x2->x1
+//	
+//	//cout << path[x1 - 1] << " " << path2[x2 - 1] << " " << path3[N - 1] << endl;
+//	//cout << path[x2 - 1] << " " << path3[x1 - 1] << " " << path2[N - 1] << endl;
+//	
+//	int x1_to_x2 = path[x1 - 1] + path2[x2 - 1] + path3[N - 1];
+//	int x2_to_x1 = path[x2 - 1] + path3[x1 - 1] + path2[N - 1];
+//
+//	int minNum = min(x1_to_x2, x2_to_x1);
+//
+//	if (minNum == x1_to_x2)
 //	{
-//		if (i == INF)
-//			cout << "INF" << endl;
+//		if (path[x1 - 1] == INF || path2[x2 - 1] == INF || path3[N - 1] == INF)
+//		{
+//			cout << -1;
+//		}
 //		else
-//			cout << i << endl;
+//		{
+//			cout << minNum;
+//		}
 //	}
+//	else
+//	{
+//		if (path[x2 - 1] == INF || path3[x1 - 1] == INF || path2[N - 1] == INF)
+//		{
+//			cout << -1;
+//		}
+//		else
+//		{
+//			cout << minNum;
+//		}
+//	}
+//	
 //}
 //
