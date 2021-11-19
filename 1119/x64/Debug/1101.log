@@ -1,0 +1,32 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: 중간 디렉터리(x64\Debug\)에 다른 프로젝트(1101.vcxproj, 1102.vcxproj, 1104.vcxproj, 1108.vcxproj, 1110.vcxproj, 1111.vcxproj, 1115.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
+  Astar.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xmemory(714,68): warning C4244: '인수': '_Ty'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=double
+          ]
+          and
+          [
+              _Ty=int
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(721): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,int,double>(_Alloc &,_Objty *const ,int &&,double &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Alloc=std::allocator<std::vector<int,std::allocator<int>>>,
+              _Ty=std::vector<int,std::allocator<int>>,
+              _Objty=std::vector<int,std::allocator<int>>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(726): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,int,double>(_Alloc &,_Objty *const ,int &&,double &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Alloc=std::allocator<std::vector<int,std::allocator<int>>>,
+              _Ty=std::vector<int,std::allocator<int>>,
+              _Objty=std::vector<int,std::allocator<int>>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\vector(739): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::vector<std::vector<int,std::allocator<int>>,std::allocator<std::vector<int,std::allocator<int>>>>::_Emplace_back_with_unused_capacity<_Ty,double>(_Ty &&,double &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\KGA_22_PM\DataStructure\1119\Astar.cpp(67): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::vector<std::vector<int,std::allocator<int>>,std::allocator<std::vector<int,std::allocator<int>>>>::emplace_back<int,double>(int &&,double &&)'에 대한 참조를 확인하세요.
+  1101.vcxproj -> C:\Users\KGA_22_PM\DataStructure\1119\x64\Debug\1118.exe
