@@ -146,6 +146,7 @@
     <ClCompile Include="BJ1956.cpp" />
     <ClCompile Include="dijkstra.cpp" />
     <ClCompile Include="floyd.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyGraph.h" />
