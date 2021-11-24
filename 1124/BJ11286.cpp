@@ -13,7 +13,7 @@ int main()
 	int N;
 	priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
 	cin >> N;
-
+	//
 	for (int i = 0; i < N; ++i)
 	{
 		int input;
